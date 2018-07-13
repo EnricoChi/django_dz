@@ -1,0 +1,24 @@
+{% extends 'main_page/commons/wrapper.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+    <title>{{ model.seo_title }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h1>{{ model.title }}</h1>
+    </div>
+    <div class="row">
+        <div>
+            <br>
+            <p>{{ model.text }}</p>
+            <br>
+            {% for category in model.category.all %}
+                <small>{{ category|lower }}</small>
+            {% endfor %}
+            <br>
+        <small>Дата создания: {{ model.created_date|date }}</small>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    {% block meta %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'goods/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            {% include 'main_page/commons/menu.html' %}
+        </div>
+    </header>
+    <main>
+        <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    </main>
+    <br>
+    <br>
+    <footer>
+        <div class="container">
+            &copy; {% now "Y" %}
+        </div>
+    </footer>
+</body>
+</html>

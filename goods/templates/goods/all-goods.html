@@ -1,0 +1,20 @@
+{% extends 'main_page/commons/wrapper.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+    <title>Каталог товаров</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for product in model %}
+            <div class="product">
+                <h3><a href="{% url 'view-product' product.pk %}">{{ product.title }}</a></h3>
+                <p>{{ product.text }}</p>
+                {% for category in product.category.all %}
+                    <small>{{ category|lower }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
